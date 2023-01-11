@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/predictor.css">
+    <script type="text/javascript" src="/static/jss/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(function(){
+         $("#Area_Locality").select2();
+        }); 
+       </script>
+    <title>India house Rent Prediction</title>
+</head>
+<body>
+    <section id="prediction-form">
+        <form class="form" action="/predict", method="POST">
+            <h1 class="my-3 text-center">Predictor</h1>
+            <div class="row">
+                
+            
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="BHK" class="BHK" name="BHK">BHK</label>
+                        <select class="BHK" id="BHK" name="BHK" aria-label="BHK">
+                            <option selected>Select BHK</option>
+                            <option value= 1>1</option>
+                            <option value= 2>2</option>
+                            <option value= 3>3</option>
+                            <option value= 4>4</option>
+                            <option value= 5>5</option>
+                            <option value= 6>6</option>
+                            <option value= 7>7</option>
+                            <option value= 8>8</option>
+                            <option value= 9>9</option>
+                            <option value= 10>10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="Size" class="Size">Size</label>
+                        <input type="text" class="form-control" id="Size" name="Size">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                <form name="form1" id="form1" action="/action_page.php">
+                    <label for="City" class="City">City</label>
+                    <select name="City" id="City">
+                        <option value="" selected="selected">Select City</option>
+                      </select>
+                      <br><br>
+                    </div>
+                    </div>
+                    <div class="col-md-6 my-2">
+                        <div class="md-form">
+                      <label for="Area_Locality" class="Area_Locality">Area_Locality</label>
+                      <select   name="Area_Locality" id="Area_Locality" >
+                        <option value="" selected="selected">Please select City first</option>
+                      </select>
+                      <br><br>
+                    
+                </form>
+                </div>
+                </div>
+                
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="Bathroom" class="Bathroom" name="Bathroom">Bathroom</label>
+                        <select class="Bathroom" id="Bathroom" name="Bathroom" aria-label=Bathroom">
+                            <option selected>Select no of Bathroom</option>
+                            <option value= 1>1</option>
+                            <option value= 2>2</option>
+                            <option value= 3>3</option>
+                            <option value= 4>4</option>
+                            <option value= 5>5</option>
+                            <option value= 6>6</option>
+                            <option value= 7>7</option>
+                            <option value= 8>8</option>
+                            <option value= 9>9</option>
+                            <option value= 10>10</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="Floor_no" class="Floor_no">Floor_no</label>
+                        <input type="text" class="form-control" id="Floor_no" name="Floor_no">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <div class="md-form">
+                        <label for="Total_floor" class="Total_floor">Total_floor</label>
+                        <input type="text" class="form-control" id="Total_floor" name="Total_floor">
+                    </div>
+                </div>
+                <div class="col-md-6 my-2 d-flex align-items-end justify-content-around">
+                    <div class="vertical-center">
+                    <button type="submit" class="btn btn-info button" style="margin-left: 100%;">Predict</button>
+                </div>
+            </div>
+            </div>
+        </form>
+    </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>

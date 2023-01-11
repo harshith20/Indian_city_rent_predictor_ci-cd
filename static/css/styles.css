@@ -1,0 +1,191 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	--primary-color: #00b7c2;
+}
+
+section {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+body{
+    font-family: 'Brush Script MT', cursive;
+    width: 1000px;
+    height: 1000px;
+    background:url(https://wallpapercave.com/wp/wp5042928.jpg)
+        no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+   }
+   #about {
+	background-color: rgb(238, 238, 238);
+	min-height: 60vh;
+	padding: 7% 10%;
+}
+#title {
+	background-color: green;
+	
+}
+
+#info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	background-color: #eee;
+	min-height: 95vh;
+}
+
+#dashboard {
+	padding: 7% 10%;
+	background-color: #ddd;
+}
+
+#dashboard h2 {
+	
+	margin-bottom: 30px;
+}
+
+#dashboard p {
+	margin-bottom: 40px;
+	padding: 0 10%;
+}
+
+#dashboard img {
+	max-height: 85vh;
+}
+
+#dashboard div {
+	margin-top: 10px;
+	padding: 0 100px;
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#dashboard div img {
+	width: 100%;
+	max-height: 120px;
+}
+
+.dashboard-image {
+	padding: 0 7%;
+}
+
+#about > div,
+#info > div {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 50%;
+}
+
+#about > div img,
+#info > div img {
+	height: 70vh;
+	width: 70%;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+#about h2,
+#info h2,
+#dashboard h2 {
+	text-align: center;
+	color: var(--primary-color);
+	font-size: 50px;
+}
+
+#info > div > img {
+	max-width: 75%;
+	height: 75vh;
+}
+
+.about-content {
+	padding: 0 50px;
+	margin-top: 50px;
+}
+header {
+	position: relative;
+	top: 0;
+	width: 100%;
+	padding: 30px 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+}
+
+label {
+	display: none;
+}
+
+header .logo {
+	color:green;
+	position: relative;
+	font-size: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+header .navigation a {
+	
+	font-size: 25px;
+	text-decoration: none;
+	font-weight: 500;
+	letter-spacing: 1px;
+	padding: 2px 15px;
+	border-radius: 20px;
+	transition: 0.3s;
+	transition-property: background;
+	color:green
+}
+
+header .navigation a:not(:last-child) {
+	margin-right: 30px;
+}
+
+header .navigation a:hover {
+	background:white;
+}
+
+.content {
+	max-width: 650px;
+	margin: 60px 100px;
+}
+
+.content .info h2 {
+	color: var(--primary-color);
+	font-size: 55px;
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 2px;
+	line-height: 60px;
+	margin-bottom: 30px;
+}
+
+.content .info h2 span {
+	color: #fff;
+	font-size: 50px;
+	font-weight: 600;
+}
+.input-container {
+    display: inline;
+    margin: 10px;
+}
+h3{
+	padding: 3px 25px;
+	position: center;
+	font-size: 25px;
+	font-weight: 600;
+}

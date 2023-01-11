@@ -1,0 +1,44 @@
+* {
+    text-align: center;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	--primary-color: #00b7c2;
+}
+
+
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Brush Script MT', cursive;
+    width: 1000px;
+    height: 1000px;
+    background:url(https://wallpapercave.com/wp/wp5042928.jpg)
+        no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+   }
+   
+   p.italic {
+    font-style: italic; 
+    }
+
+.centre{
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    }
+
+h1{
+	padding: 3px 25px;
+	position: center;
+	font-size: 25px;
+	font-weight: 600;
+}

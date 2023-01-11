@@ -1,0 +1,23 @@
+body {
+    background:url(https://wallpapercave.com/wp/wp5042928.jpg)
+        no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+.form {
+    background-color: white;
+    width: 70vw;
+    margin: 50px auto;
+    padding: 20px 50px;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+    border-radius: 12px;
+}
+.form h1 {
+    color: #0fd3dd;
+}
+
+.button {
+    
+    position: relative;
+    padding: 5px 25px;
+    font-size: 18px;
+}
