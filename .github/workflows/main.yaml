@@ -15,13 +15,13 @@ jobs:
       
     - name: Build Docker image
       run: docker build -t my-python-web-app .
-
-    - name: Setup Render
+      
+    - name: Create service on Render
       run: |
-        echo "Setup Render"
-        echo "${{ secrets.RENDER_API_KEY }}" | render setup
+        echo "Creating service on Render"
+        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" -d '{"image": "my-python-web-app","env": {"PORT": "8000"}}' https://api.render.com/services
         
     - name: Deploy to Render
       run: |
         echo "Deploying to Render"
-        render create --docker-image=my-python-web-app --env-file=env.list --port=8000
+        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" https://api.render.com/services/${{ env.SERVICE_ID }}/deploy
