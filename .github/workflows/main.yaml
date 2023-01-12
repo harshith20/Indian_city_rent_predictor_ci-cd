@@ -1,9 +1,9 @@
-name: Deploy Python App to Render
+name: Deploy Python Web App with Dockerfile to Render
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -12,28 +12,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-         dockerfile_directory: ./
-
-          # (Optional, default: "Dockerfile")
-          # Dockerfile name.
-          dockerfile_name: Dockerfile
-
-          # (Optional, default: "")
-          # Additional options of docker build command.
-          docker_options: "--no-cache"
-
-    - name: Install dependencies
-      run: pip install -r requirements.txt
-
-    - name: Build App
-      run: python app.py sdist
-
-    # - name: Build Docker image
-    #   run: docker build -t my-python-app .
+      
+    - name: Build Docker image
+      run: docker build -t my-python-web-app .
 
     - name: Setup Render
       run: |
@@ -43,4 +24,4 @@ jobs:
     - name: Deploy to Render
       run: |
         echo "Deploying to Render"
-        render deploy --service-id=${YOUR_SERVICE_ID} --no-start --docker-image=my-python-app
+        render create --docker-image=my-python-web-app --env-file=env.list --port=8000
