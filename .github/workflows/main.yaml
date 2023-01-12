@@ -19,9 +19,9 @@ jobs:
     - name: Create service on Render
       run: |
         echo "Creating service on Render"
-        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" -d '{"image": "my-python-web-app","env": {"PORT": "8000"}}' https://api.render.com/v1/owners?name=harshith&email=harshithareti%40gmail.com&limit=20
+        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" -d '{"image": "my-python-web-app","env": {"PORT": "8000"}}' https://api.render.com/v1/owners?name=harshith%20swamy&email=harshithareti%40gmail.com&limit=20
         
     - name: Deploy to Render
       run: |
         echo "Deploying to Render"
-        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" https://api.render.com/v1/owners?name=harshith&email=harshithareti%40gmail.com&limit=20/${{ env.SERVICE_ID }}/deploy
+        curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" https://api.render.com/v1/owners?name=harshith%20swamy&email=harshithareti%40gmail.com&limit=20/${{ env.SERVICE_ID }}/deploy
