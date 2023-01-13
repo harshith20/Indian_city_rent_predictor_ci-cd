@@ -1,5 +1,5 @@
 name: Deploy to Deta
-on: 
+on:
   push:
     branches:
       - main
@@ -8,10 +8,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 #Be sure you check-out the repo first. Deta CLI needs access to the files
-      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build Docker image
+      run: docker build -t my-python-web-app .
+    - name: Create Micro on Deta
+      run: |
+        echo "Creating Micro on Deta"
+        export MICRO_NAME="my-micro"
+        export DETA_API_KEY=${secrets.DETA_TOKEN}
+        export RUNTIME="python"
+        export DET_API_URL="https://api.deta.sh"
+        export MICRO_ID=`curl -H "Authorization: Bearer $DETA_API_KEY" -X POST -d '{"name":"'$MICRO_NAME'","runtime":"'$RUNTIME'"}' $DET_API_URL/micros | jq -r '.micro_id'`
+    - name: Deploy to Deta
+    - uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'my-micro' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
           deta-project: 'rent' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
           deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
+       
