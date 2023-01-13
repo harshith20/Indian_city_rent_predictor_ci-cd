@@ -16,7 +16,7 @@ jobs:
       run: |
         echo "Creating Micro on Deta"
         export MICRO_NAME="my-micro"
-        export DETA_API_KEY=${secrets.DETA_API_KEY}
+        export DETA_API_KEY=${{ secrets.RENDER_API_KEY }}
         export RUNTIME="python"
         export DET_API_URL="https://api.deta.sh"
         export MICRO_ID=`curl -H "Authorization: Bearer $DETA_API_KEY" -X POST -d '{"name":"'$MICRO_NAME'","runtime":"'$RUNTIME'"}' $DET_API_URL/micros | jq -r '.micro_id'`
@@ -24,7 +24,7 @@ jobs:
       run: |
         echo "Deploying to Deta"
         export MICRO_NAME="my-micro"
-        export DETA_API_KEY=${secrets.DETA_API_KEY}
+        export DETA_API_KEY=${{ secrets.RENDER_API_KEY }}
         export IMAGE_NAME="my-python-web-app"
         export PORT="8000"
         export DET_API_URL="https://api.deta.sh"
