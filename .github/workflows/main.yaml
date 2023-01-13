@@ -11,20 +11,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Build Docker image
-      run: docker build -t my-python-web-app .
+      run: docker build -t Dockerfile .
     - name: Create Micro on Deta
       run: |
         echo "Creating Micro on Deta"
         export MICRO_NAME="my-micro"
-        export DETA_API_KEY=${secrets.DETA_TOKEN}
+        export DETA_API_KEY=${secrets.DETA_API_KEY}
         export RUNTIME="python"
         export DET_API_URL="https://api.deta.sh"
         export MICRO_ID=`curl -H "Authorization: Bearer $DETA_API_KEY" -X POST -d '{"name":"'$MICRO_NAME'","runtime":"'$RUNTIME'"}' $DET_API_URL/micros | jq -r '.micro_id'`
     - name: Deploy to Deta
-    - uses: BogDAAAMN/deta-deploy-action@v1.0.1
-      with:
-        deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
-        deta-name: 'my-micro' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-        deta-project: 'rent' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
-        deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
-       
+      run: |
+        echo "Deploying to Deta"
+        export MICRO_NAME="my-micro"
+        export DETA_API_KEY=${secrets.DETA_API_KEY}
+        export IMAGE_NAME="my-python-web-app"
+        export PORT="8000"
+        export DET_API_URL="https://api.deta.sh"
+        export MICRO_URL="https://$MICRO_NAME.micro.deta.sh"
+        curl -H "Authorization: Bearer $DETA_API_KEY" -X PUT -d '{"image":"'$IMAGE_NAME'","env":{"PORT":"'$PORT'"}}' $DET_API_URL/micros/$MICRO_ID
