@@ -22,9 +22,9 @@ jobs:
         export MICRO_ID=`curl -H "Authorization: Bearer $DETA_API_KEY" -X POST -d '{"name":"'$MICRO_NAME'","runtime":"'$RUNTIME'"}' $DET_API_URL/micros | jq -r '.micro_id'`
     - name: Deploy to Deta
     - uses: BogDAAAMN/deta-deploy-action@v1.0.1
-        with:
-          deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
-          deta-name: 'my-micro' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project: 'rent' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
+      with:
+        deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
+        deta-name: 'my-micro' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
+        deta-project: 'rent' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
+        deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
        
