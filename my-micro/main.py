@@ -1,2 +1,3 @@
-def app(event):
-    return "Hello, world!"
+import os
+
+os.system("python app.py")
