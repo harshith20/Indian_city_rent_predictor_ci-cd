@@ -18,7 +18,7 @@ jobs:
         export MICRO_NAME="my-micro"
         export DETA_API_KEY=${{ secrets.RENDER_API_KEY }}
         export RUNTIME="python"
-        export DET_API_URL="https://database.deta.sh/v1"
+        export DET_API_URL="https://database.deta.sh/v1/d0rfh11p"
         export MICRO_ID=`curl -H "Authorization: Bearer $DETA_API_KEY" -X POST -d '{"name":"'$MICRO_NAME'","runtime":"'$RUNTIME'"}' $DET_API_URL/micros | jq -r '.micro_id'`
     - name: Deploy to Deta
       run: |
@@ -27,6 +27,6 @@ jobs:
         export DETA_API_KEY=${{ secrets.RENDER_API_KEY }}
         export IMAGE_NAME="my-python-web-app"
         export PORT="8000"
-        export DET_API_URL="https://database.deta.sh/v1"
+        export DET_API_URL="https://database.deta.sh/v1/d0rfh11p"
         export MICRO_URL="https://$MICRO_NAME.micro.deta.sh"
         curl -H "Authorization: Bearer $DETA_API_KEY" -X PUT -d '{"image":"'$IMAGE_NAME'","env":{"PORT":"'$PORT'"}}' $DET_API_URL/micros/$MICRO_ID
