@@ -9,7 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2 #Be sure you check-out the repo first. Deta CLI needs access to the files
       - name: Build Docker image
-        run: docker build -t my-python-web-app .
+        run: |
+          cd my-micro
+          docker build -t my-image .
       - uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
           deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
