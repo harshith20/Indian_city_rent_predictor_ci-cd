@@ -4,3 +4,4 @@ requests==2.25.1
 Werkzeug==2.1.2
 scikit-learn==0.22.0
 scipy==1.5
+Jinja2==3.1.2
