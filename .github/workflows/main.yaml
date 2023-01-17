@@ -1,23 +1,34 @@
-name: Deploy to Deta
+name: Deploy to Railway
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Build Docker image
-        run: docker build -t my-python-web-app . 
-        #Be sure you check-out the repo first. Deta CLI needs access to the files
-      # - name: Build Docker image
-      #   run: |
-      #     cd my-micro
-      #     docker build -t my-image .
-      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        run: docker build -t my-python-web-app 
+
+      - name: Use Node 12
+        uses: actions/setup-node@v1
         with:
-          deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
-          deta-name: 'Indian_city_rent_predictor_ci-cd' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project: 'default' #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
-          deta-project-dir: '.' #Optional: directory to be deployed on Deta. Default is the root "." 
+          node-version: 12.x
+
+      - name: Install packages
+        run: yarn install --frozen-lockfile
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Install Railway
+        run: npm i -g @railway/cli
+
+      - name: Deploy
+        run: railway up
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
