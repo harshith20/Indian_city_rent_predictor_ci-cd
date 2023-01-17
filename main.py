@@ -49,7 +49,8 @@ def predict():
         input=[BHK,Size, Area_Loc,Bathroom,Floor_no,Total_floor,
         City_Chennai,City_Delhi,City_Hyderabad, City_Kolkata,
         City_Mumbai]
-        output=int(np.exp(model.predict([input])))
+        k=model.predict([input])
+        output=int(np.exp(k))
         return render_template("rent_val.html",prediction=output)
     return render_template("predict.html")
 
