@@ -1,6 +1,6 @@
 FROM python:3.8
-COPY . /main
-WORKDIR /main
+COPY . /app
+WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE $PORT
-CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT main:main
+CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
