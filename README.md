@@ -11,9 +11,11 @@ To use this web app in ur local system
 1. Clone it in ur local system
 2. Navigate to the directory containing the Dockerfile.
 3. Build the Docker image by running the
-  following command:  docker build -t <image_name> .
+  following command:
+   docker build -t <image_name> .
 4. After the build is complete, you can run the Docker image by using the
-  following command: docker run -p <host_port>:<container_port> <image_name>
+  following command:
+   docker run -p <host_port>:<container_port> <image_name>
 
 
 
