@@ -1,14 +1,13 @@
 # Indian_city_rent_predictor_ci-cd
 predicts rent for flats in different cities based on amenities provided.
 
-
 This project has been developed along with github actions ci/cd and Dockerfile .
 .Rent data in kaggle has been used for modelling , prepared a random forest regression model and got an accuracy of over 81 %.check out the jupyter filer for model developement code
 
 Flask has been  used to develop this python web app .
 To use this web app in ur local system
 
-1. Clone it in ur local system
+1. Clone it in ur local system 
 2. Navigate to the directory containing the Dockerfile.
 3. Build the Docker image by running the
   following command:
